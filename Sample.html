@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fedback{
+            padding: 15px;
+            position: relative;
+            transition: 0.3s;
+        }
+        .feedback{
+            transition: 0.3s;
+        }
+        .feedback .input-box{
+            margin-bottom: 20px;
+        }
+        .feedback .input-box input{
+            width: 250px;
+            height: 40px;
+            border-radius: 6px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        #comment input{
+            height: 100px;
+            background-color: var(--primary-color);
+        }
+        .feedback .input-box textarea{
+            height: 100px;
+            width: 250px;
+            border-radius: 6px;
+            outline: none;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .feedback .input-box textarea::placeholder{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 19px;
+        }
+        .submit-btn{
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sumbit-form{
+            background-color: transparent;
+            height: 200px;
+            width: 280px;
+            position: absolute;
+            right: 50px;
+            margin-top: 4%;
+            display: none;
+            right: -15px;
+            transition: 0.3s;
+        }
+        .sumbit-form .sform{
+            text-align: center;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sumbit-form .sform .tik i{
+            color: rgb(85, 133, 14);
+            font-size: 30px;
+        }
+        .sumbit-form .sform p{
+            color: white;
+        }
+        .sumbit-form .sform  button{
+            padding: 8px 10px;
+            margin-top: 10px;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer_col fedback">
+        <div class="feedback_form">
+            <div class="sumbit-form">
+                <div class="sform">
+                    <span class="tik"><i class="ri-checkbox-circle-fill"></i></span>
+                    <p>Thanks for your feedback...<span>!</span></p>
+                    <button class="ok-btn">Ok</button>
+                </div>
+            </div>
+            <form action="#" class="feedback" id="feedbackForm">
+                <h4>Feedback</h4>
+                <div class="input-box">
+                    <input type="text" placeholder="Your Full Name" required >
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Your Email" required >                            
+                </div>
+                <div class="input-box" id="comment">
+                    <textarea name="message" placeholder="Write Your Comments" required></textarea>                          
+                </div>
+                <button class="btn submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function submited(event){
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Hide the feedback form
+            document.querySelector('.feedback').style.display = 'none';
+
+            // Show the thank you message
+            document.querySelector('.sumbit-form').style.display = 'block';
+        }
+
+        // Attach the submit event listener to the form
+        document.getElementById('feedbackForm').addEventListener('submit', submited);
+
+        // Handle the OK button click to reset the form
+        document.querySelector('.ok-btn').addEventListener('click', function () {
+            // Hide the thank you message
+            document.querySelector('.sumbit-form').style.display = 'none';
+
+            // Reset the form and show it again
+            document.querySelector('.feedback').reset();
+            document.querySelector('.feedback').style.display = 'block';
+        });
+
+    </script>
+    
+</body>
+</html>
